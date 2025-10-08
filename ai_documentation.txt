@@ -1,0 +1,27 @@
+AI / LLM Usage Documentation — Stat 159/259 HW2 (Fall 2025)
+------------------------------------------------------------
+
+Student: Jun Kang
+Assignment: Homework 2
+
+Tool used:
+ChatGPT (OpenAI GPT-5)
+
+------------------------------------------------------------
+PROMPT EXCERPTS
+------------------------------------------------------------
+
+[Prompt 1]
+binder fails to import numpy how do i fix this it says /srv/conda/envs/notebook/bin/python
+
+[ChatGPT Output 1]
+This means Binder is still launching a kernel that isn’t your conda env.  
+Run the following in your terminal:
+
+mkdir -p binder
+cp environment.yml binder/environment.yml
+
+cat > binder/postBuild << 'EOF'
+#!/usr/bin/env bash
+set -e
+python -m ipykernel install --name ligo --display-name "Python (ligo)" --sys-prefix
