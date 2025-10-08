@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
-set -e
-# Register the kernel using the env's own Python
-python -m ipykernel install --name ligo --display-name "Python (ligo)" --sys-prefix
+set -euxo pipefail
+# Use the conda env you define in environment.yml (named "ligo")
+/srv/conda/envs/ligo/bin/python -m ipykernel install \
+  --name ligo \
+  --display-name "Python (ligo)" \
+  --sys-prefix
