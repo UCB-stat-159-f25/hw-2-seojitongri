@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 set -e
-python -m ipykernel install --user --name ligo --display-name "Python (ligo)"
+# Register the kernel using the env's own Python
+python -m ipykernel install --name ligo --display-name "Python (ligo)" --sys-prefix
